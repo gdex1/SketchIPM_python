@@ -24,8 +24,8 @@ directory = '/Users/palma/Documents/Work/1_Projects/code_py/ipm/ipm_figures'
 
 #------------------------------------------------------------
 if __name__ == '__main__':
-	print '---------------------------', '\n'
-	print 'Test IPM SVM real or synthetic dataset, 1 Run', '\n'
+	print('---------------------------', '\n')
+	print('Test IPM SVM real or synthetic dataset, 1 Run', '\n')
 	#------------------------------------------------------------
 
 
@@ -42,11 +42,11 @@ if __name__ == '__main__':
 	#X_train,y_train,X_test,y_test = load_real_data.load_DOROTHEA() # (800 x 100k)
 
 	t_data_2 = time.time()
-	print 'time data load    = ', t_data_2 - t_data_1, ' secs'
+	print('time data load    = ', t_data_2 - t_data_1, ' secs')
 
 	data_desc = 's' # s for synthetic 
 	#data_desc = 'ARCENE'
-	print 'data_desc    = ', data_desc
+	print('data_desc    = ', data_desc)
 
 
 	#------------------------------------------------------------
@@ -57,11 +57,11 @@ if __name__ == '__main__':
 	#tol_cg = 1E-4
 	n = 2*N+1
 	#------------------------------------------------------------
-	print '---------------------------', '\n'
-	print '(m x n) = (', m, 'x', n, ')'
-	print 'w = ', w
-	print 'tol_cg = ', tol_cg
-	print '\n', '---------------------------'
+	print('---------------------------', '\n')
+	print('(m x n) = (', m, 'x', n, ')')
+	print('w = ', w)
+	print('tol_cg = ', tol_cg)
+	print('\n', '---------------------------')
 	#------------------------------------------------------------
 	# form l1-SVM constraint matrix 
 	A,b,c = svm_func.formL1SVM(X_train,y_train)
@@ -80,10 +80,10 @@ if __name__ == '__main__':
 	
 	p_ipm_vec_stan = np.dot(c,x)		
 	d_ipm_vec_stan = np.dot(b,y)
-	print '\niter stan out = ', iter_out_stan
+	print('\niter stan out = ', iter_out_stan)
 	
-	print 'p   = ',p_ipm_vec_stan
-	print 'd   = ',d_ipm_vec_stan
+	print('p   = ',p_ipm_vec_stan)
+	print('d   = ',d_ipm_vec_stan)
 
 	#------------------------------------------------------------
 	# IPM Ours
@@ -94,9 +94,9 @@ if __name__ == '__main__':
 	p_ipm_final = np.dot(c,x)		
 	d_ipm_final = np.dot(b,y)	
 	v_vec_mean = np.mean(v_vec)
-	print'\nv_vec_mean = ', v_vec_mean
+	print('\nv_vec_mean = ', v_vec_mean)
 	#------------------------------------------------------------
-	print '\n-------------------------- \nSVM Results: \n--------------------------'
+	print('\n-------------------------- \nSVM Results: \n--------------------------')
 	
 	# w_approx_ipm = x[0:N] - x[N:2*N]
 	# w_approx_cvx = np.transpose(np.squeeze(x_cvx[0:N] - x_cvx[N:2*N]))
@@ -124,25 +124,25 @@ if __name__ == '__main__':
 	# print 'test_error_cvx    = ',test_error_cvx	
 
 	#------------------------------------------------------------
-	print '\n-------------------------- \nResults: \n--------------------------'
-	print 'time ipm    = ', t_ipm_2 - t_ipm_1, ' secs'
+	print('\n-------------------------- \nResults: \n--------------------------')
+	print('time ipm    = ', t_ipm_2 - t_ipm_1, ' secs')
 	#print 'time cvx    = ', t_cvx_2 - t_cvx_1, ' secs'
 
-	print '\niter stan out = ', iter_out_stan
-	print 'iter ipm out = ', iter_out_ipm
+	print('\niter stan out = ', iter_out_stan)
+	print('iter ipm out = ', iter_out_ipm)
 
-	print '\niter stan in cg = \n', iter_in_cg_vec_stan
-	print '\nkap_AD_vec = \n', kap_AD_vec
+	print('\niter stan in cg = \n', iter_in_cg_vec_stan)
+	print('\nkap_AD_vec = \n', kap_AD_vec)
 
-	print '\niter ipm  in cg = \n', iter_in_cg_vec_ipm
-	print '\nkap_ADW_vec = \n', kap_ADW_vec
+	print('\niter ipm  in cg = \n', iter_in_cg_vec_ipm)
+	print('\nkap_ADW_vec = \n', kap_ADW_vec)
 
-	print 'p   = ',p_ipm_final
-	print 'd   = ',d_ipm_final
-	print 'p   = ',p_ipm_vec_stan
-	print 'd   = ',d_ipm_vec_stan
+	print('p   = ',p_ipm_final)
+	print('d   = ',d_ipm_final)
+	print('p   = ',p_ipm_vec_stan)
+	print('d   = ',d_ipm_vec_stan)
 
-	print v_vec
+	print(v_vec)
 	#------------------------------------------------------------
 	# Plot
 	msize = 2

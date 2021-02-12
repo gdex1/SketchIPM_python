@@ -1,6 +1,5 @@
 #------------------------------------------------------------
 import random
-import Queue
 import numpy as np
 import scipy as sp
 from numpy import linalg as LA
@@ -123,7 +122,7 @@ def load_data_nh2010():
 		for line in f:
 			matrix.append(line)
 
-	print 'nh2010 data set loaded ( 48838 x 48838 )\n'
+	print('nh2010 data set loaded ( 48838 x 48838 )\n')
 	#print 'len(matrix) = ', len(matrix)
 
 	row_ind=[0]*len(matrix)
